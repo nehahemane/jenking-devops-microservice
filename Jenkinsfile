@@ -21,30 +21,30 @@
 
 // 3) DECLARATIVE PIPELINE
 
-pipline{
+pipline {
 	agent any
-	stages{
-		stage("Build"){
-			step{
+	stages {
+		stage("Build") {
+			step {
 				echo "Build"
 			}
 		}
 		
-		stage{
-			step("Test"){
+		stage {
+			step("Test") {
 				echo "Test"
 			}
 
 		}
 	}
-	post{
-		always{
+	post {
+		always {
 			echo "I am awesome"
 		}
-		success{
+		success {
 			echo "I run when successful"
 		}
-		failure{
+		failure {
 			echo "I run when fail"
 		}
 	}
