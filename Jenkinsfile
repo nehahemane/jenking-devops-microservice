@@ -1,12 +1,21 @@
+//
+
+// node {
+// 	stage('Build') {
+// 		echo "Build"
+// 	}
+// 	stage('Test') {
+// 		echo "Test"
+// 	}
+// }
+
+// 2)SCRIPTED PIPELINE
+
 node {
-	stage('Build') {
-		echo "Build"
-	}
-	stage('Test') {
-		echo "Test"
-	}
-	stage('Dev') {
-		echo "Dev"
+	echo "Build"
+	echo "Test"
+	echo " Dev"
+	
 }
 
-}
+// 3) DECLARATIVE PIPELINE
