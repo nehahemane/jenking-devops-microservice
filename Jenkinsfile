@@ -1,4 +1,4 @@
-//
+// 1) #################################################################################################
 
 // node {
 // 	stage('Build') {
@@ -9,7 +9,7 @@
 // 	}
 // }
 
-// 2)SCRIPTED PIPELINE
+// 2) SCRIPTED PIPELINE ################################################################################
 
 // node {
 // 	echo "Build"
@@ -19,14 +19,47 @@
 // }
 
 
-// 3) DECLARATIVE PIPELINE
+// 3) DECLARATIVE PIPELINE   #############################################################################
 
-pipeline {
-	agent any
+// pipeline {
+// 	agent any
+// 	stages {
+// 		stage("Build") {
+// 			steps {
+// 				echo "Build"
+// 			}
+// 		}
+		
+// 		stage("Test") {
+// 			steps {
+// 				echo "Test"
+// 			}
+
+// 		}
+// 	}
+// 	post {
+// 		always {
+// 			echo "I am awesome"
+// 		}
+// 		success {
+// 			echo "I run when successful"
+// 		}
+// 		failure {
+// 			echo "I run when fail"
+// 		}
+// 	}
+// }
+
+// 4) Build Run on Container (Docker Image) ############################################################
+
+ pipeline {
+	//agent any
+	agent { docker { image 'maven:3.6.3'} }
 	stages {
 		stage("Build") {
 			steps {
 				echo "Build"
+				sh 'mvn --version'
 			}
 		}
 		
@@ -37,17 +70,4 @@ pipeline {
 
 		}
 	}
-	post {
-		always {
-			echo "I am awesome"
-		}
-		success {
-			echo "I run when successful"
-		}
-		failure {
-			echo "I run when fail"
-		}
-	}
-}
-
-
+ }
