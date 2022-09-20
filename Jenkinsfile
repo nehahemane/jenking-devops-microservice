@@ -21,7 +21,7 @@
 
 // 3) DECLARATIVE PIPELINE
 
-pipline {
+pipeline {
 	agent any
 	stages {
 		stage("Build") {
